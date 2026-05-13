@@ -49,6 +49,24 @@ protects borrower collateral.
    npm run dev
    ```
 
+## 🌊 Drips Wave Program
+
+LendX is a proud participant in the **Drips Wave** program. We run recurring contribution sprints where developers can earn **Points** (and rewards) for helping us build the future of autonomous lending on Stellar.
+
+- **Active Wave**: [Check GitHub Issues with the `wave-task` label](https://github.com/geraniFL/LendX/issues?q=is%3Aopen+is%3Aissue+label%3Awave-task)
+- **How to Join**: Read our [Contributing Guide](./CONTRIBUTING.md) to get started.
+
+## 🗺 Roadmap
+
+Our goal is to bring the first agent-native lending protocol to Stellar Mainnet.
+
+- [x] **Phase 1**: Core Soroban Vaults & Auction logic (Testnet)
+- [ ] **Phase 2**: x402 integration for Monitor Agents
+- [ ] **Phase 3**: Multi-collateral support (USDC, XLM, yXLM)
+- [ ] **Phase 4**: Mainnet Launch & Governance
+
+See the full [**Roadmap**](./ROADMAP.md) for more details.
+
 ## 🌐 Network
 
 LendX is currently live on **Stellar Testnet**.
