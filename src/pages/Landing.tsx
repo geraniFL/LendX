@@ -17,7 +17,7 @@ const Landing: React.FC = () => {
 			{/* Navbar */}
 			<nav className={styles.Navbar}>
 				<div className={styles.NavLogo}>
-					<Icon.Stellar size="md" color="var(--accent-cyan)" />
+					<Icon.Activity size="md" color="var(--accent-cyan)" />
 					<span>LendX</span>
 				</div>
 				<div className={styles.NavLinks}>

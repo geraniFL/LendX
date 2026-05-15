@@ -24,21 +24,7 @@ const AppLayout: React.FC = () => (
 	<div className={styles.AppLayout}>
 		<Layout.Header
 			projectId="LendX"
-			projectTitle={
-				<Link
-					to="/"
-					style={{
-						textDecoration: "none",
-						color: "inherit",
-						display: "flex",
-						alignItems: "center",
-						gap: "0.5rem",
-					}}
-				>
-					<Icon.Stellar size="md" color="var(--accent-cyan)" />
-					LendX
-				</Link>
-			}
+			projectTitle="LendX"
 			hasThemeSwitch={true}
 			contentCenter={
 				<>
