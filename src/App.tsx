@@ -1,16 +1,18 @@
 import { Button, Icon, Layout } from "@stellar/design-system"
-import { Routes, Route, Outlet, NavLink } from "react-router-dom"
+import { Routes, Route, Outlet, NavLink, Link } from "react-router-dom"
 import styles from "./App.module.css"
 import ConnectAccount from "./components/ConnectAccount"
 import { labPrefix } from "./contracts/util"
 import Debug from "./pages/Debug"
 import Home from "./pages/Home"
+import Landing from "./pages/Landing"
 
 function App() {
 	return (
 		<Routes>
+			<Route path="/" element={<Landing />} />
 			<Route element={<AppLayout />}>
-				<Route path="/" element={<Home />} />
+				<Route path="/dashboard" element={<Home />} />
 				<Route path="/debug" element={<Debug />} />
 				<Route path="/debug/:contractName" element={<Debug />} />
 			</Route>
@@ -21,11 +23,33 @@ function App() {
 const AppLayout: React.FC = () => (
 	<div className={styles.AppLayout}>
 		<Layout.Header
-			projectId="Scaffold"
-			projectTitle="Scaffold"
+			projectId="LendX"
+			projectTitle={
+				<Link
+					to="/"
+					style={{
+						textDecoration: "none",
+						color: "inherit",
+						display: "flex",
+						alignItems: "center",
+						gap: "0.5rem",
+					}}
+				>
+					<Icon.Stellar size="md" color="var(--accent-cyan)" />
+					LendX
+				</Link>
+			}
 			hasThemeSwitch={true}
 			contentCenter={
 				<>
+					<NavLink to="/dashboard">
+						{({ isActive }) => (
+							<Button variant="tertiary" size="md" disabled={isActive}>
+								<Icon.LayoutAlt01 size="md" />
+								Dashboard
+							</Button>
+						)}
+					</NavLink>
 					<NavLink to="/debug">
 						{({ isActive }) => (
 							<Button variant="tertiary" size="md" disabled={isActive}>
@@ -56,7 +80,7 @@ const AppLayout: React.FC = () => (
 		<Layout.Footer>
 			<nav>
 				<a
-					href="https://github.com/theahaco/scaffold-stellar"
+					href="https://github.com/geraniFL/LendX"
 					className="Link Link--secondary"
 					target="_blank"
 				>
@@ -70,7 +94,7 @@ const AppLayout: React.FC = () => (
 					<Icon.Youtube size="sm" /> Tutorial
 				</a>
 				<a
-					href="https://scaffoldstellar.org"
+					href="https://github.com/geraniFL/LendX"
 					className="Link Link--secondary"
 					target="_blank"
 				>
