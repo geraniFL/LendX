@@ -1,0 +1,32 @@
+name: Deploy Soroban Contract to Testnet
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32-unknown-unknown
+
+      - name: Install Soroban CLI
+        run: cargo install --locked soroban-cli
+
+      - name: Build Contract
+        run: cargo build --target wasm32-unknown-unknown --release
+
+      - name: Deploy to Testnet
+        run: |
+          soroban contract deploy \
+            --wasm target/wasm32-unknown-unknown/release/lend_x.wasm \
+            --source ${{ secrets.TESTNET_SECRET_KEY }} \
+            --rpc-url https://soroban-testnet.stellar.org \
+            --network-passphrase "Test SDF Network ; September 2015"
